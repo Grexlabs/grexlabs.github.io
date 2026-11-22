@@ -233,7 +233,7 @@ footer{border-top:1px solid var(--line);background:#070910;padding:56px 22px 34p
     <div class="card reveal"><div class="ico">🌊</div><h3>Streaming without cutout</h3><p>15s SSE heartbeats, 60s stall watchdog, guaranteed <code>data: [DONE]</code>. Long answers arrive intact — no mid-response truncation.</p><a href="https://www.grexlabs.in/docs">Streaming details →</a></div>
     <div class="card reveal"><div class="ico">⚡</div><h3>Fast multi-provider failover</h3><p>Requests race across healthy upstreams with a 12s per-attempt budget and 120s total window — slow providers never hold your app hostage.</p><a href="https://www.grexlabs.in/docs">Architecture →</a></div>
     <div class="card reveal"><div class="ico">🔍</div><h3>Free web search API</h3><p><code>GET /api/v1/search?q=</code> — keyless, India-first ranking, Bing → DuckDuckGo → Google → Wikipedia fallback chain, 8s budget.</p><a href="https://www.grexlabs.in/search-playground">Try search →</a></div>
-    <div class="card reveal"><div class="ico">🎨</div><h3>Free image generation API</h3><p><code>POST /images/generations</code> — OpenAI Images format, keyless, multiple sizes, <code>url</code> or <code>b64_json</code> responses.</p><a href="https://www.grexlabs.in/docs#images">Image API →</a></div>
+    <div class="card reveal"><div class="ico">🎨</div><h3>Free image generation API</h3><p><code>POST /images/generations</code> — OpenAI Images format, keyless, <strong>text-to-image + image-to-image</strong> (<code>image_url</code> / <code>image_b64</code>), multi-provider failover, <code>url</code> or <code>b64_json</code>.</p><a href="https://www.grexlabs.in/docs#images">Image API →</a></div>
   </div>
 </section>
 
@@ -434,12 +434,17 @@ resp = client.chat.completions.create(
 
 <span class="c-com"># → { results: [{title,url,snippet}...], engine, timing }</span>
 
-<span class="c-com"># free image generation, no key</span>
-<span class="c-cmd">curl</span> https://www.grexlabs.in/images/generations \\
+<span class="c-com"># free text-to-image + image-to-image, no key</span>
+<span class="c-cmd">curl</span> https://www.grexlabs.in/api/v1/images/generations \\
   -H <span class="c-str">"Content-Type: application/json"</span> \\
-  -d <span class="c-str">'{"model":"gpt-image","prompt":"neon city, rain","size":"1024x1024"}'</span>
+  -d <span class="c-str">'{"model":"auto","prompt":"neon city, rain","size":"1024x1024"}'</span>
 
-<span class="c-com"># → { data: [{ url | b64_json }] }</span>`}
+<span class="c-com"># edit an image (image-to-image)</span>
+<span class="c-cmd">curl</span> https://www.grexlabs.in/api/v1/images/generations \\
+  -H <span class="c-str">"Content-Type: application/json"</span> \\
+  -d <span class="c-str">'{"prompt":"make it sunset","image_url":"https://example.com/src.png"}'</span>
+
+<span class="c-com"># → { provider, data: [{ url | b64_json }] }</span>`}
 };
 const box=document.getElementById('codebox'),file=document.getElementById('file');
 let typer;
