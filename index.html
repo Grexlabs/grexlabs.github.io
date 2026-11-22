@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GrexLabs — Free AI API | 314+ Models, OpenAI Compatible, No API Key Needed</title>
+<meta name="description" content="GrexLabs is a free AI API platform with 314+ models from 25+ providers — GPT-6.2 Astra, Claude Fable 5.2, Gemini 4 Carbon, Grok 4.7. OpenAI, Anthropic &amp; Gemini compatible chat completions, free web search API and free image generation API. Free :free models need no API key, no signup, no credit card.">
+<meta name="keywords" content="free AI API, OpenAI compatible API, free LLM API, no API key AI, GPT-6.2 Astra API, Claude API free, Gemini API free, free chat completions API, free web search API, free image generation API, GrexLabs, 314 models, AI gateway">
+<meta name="author" content="GrexLabs">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://grexlabs.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GrexLabs">
+<meta property="og:title" content="GrexLabs — Free AI API | 314+ Models, No API Key Needed">
+<meta property="og:description" content="Free OpenAI-compatible AI API: 314+ models (GPT-6.2 Astra, Claude Fable 5.2, Gemini 4 Carbon), keyless free tier, streaming without cutout, free web search &amp; image generation APIs.">
+<meta property="og:url" content="https://grexlabs.github.io/">
+<meta property="og:image" content="https://grexlabs.github.io/assets/logo.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GrexLabs — Free AI API | 314+ Models, No API Key Needed">
+<meta name="twitter:description" content="Free OpenAI-compatible AI API: 314+ models, keyless free tier, streaming without cutout, free web search &amp; image generation.">
+<meta name="twitter:image" content="https://grexlabs.github.io/assets/logo.png">
+<meta name="theme-color" content="#05060a">
+<link rel="icon" type="image/svg+xml" href="/assets/icon.svg">
+<link rel="apple-touch-icon" href="/assets/logo.png">
+<link rel="llms-txt" href="https://www.grexlabs.in/llm.txt">
+<link rel="alternate" type="text/plain" href="https://www.grexlabs.in/llms.txt" title="llms.txt">
+<link rel="sitemap" type="application/xml" href="https://www.grexlabs.in/sitemap.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"GrexLabs","alternateName":"GrexLabs Free AI API","url":"https://grexlabs.github.io/","description":"Free AI API platform with 314+ models from 25+ providers. OpenAI, Anthropic and Gemini compatible chat completions, free web search API and free image generation API. Free :free models need no API key.","publisher":{"@type":"Organization","name":"GrexLabs","logo":{"@type":"ImageObject","url":"https://grexlabs.github.io/assets/logo.png"}},"potentialAction":{"@type":"SearchAction","target":"https://www.grexlabs.in/models?q={search_term_string}","query-input":"required name=search_term_string"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"GrexLabs Free AI API","applicationCategory":"DeveloperApplication","operatingSystem":"Any (REST API)","url":"https://www.grexlabs.in/","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","ratingCount":"1284"},"featureList":"314+ LLMs, OpenAI compatible, Anthropic compatible, Gemini compatible, SSE streaming, web search API, image generation API, keyless free tier","screenshot":"https://grexlabs.github.io/assets/logo.png","softwareVersion":"2026.11"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Is the GrexLabs AI API really free?","acceptedAnswer":{"@type":"Answer","text":"Yes. Free :free models (31 IDs plus auto:free) work with no API key, no signup and no credit card — unlimited requests. Premium flagship models require a valid sk-gl- key; without a key only free :free models work."}},
+{"@type":"Question","name":"Which models are available?","acceptedAnswer":{"@type":"Answer","text":"314+ models from 25+ providers including GPT-6.2 Astra, GPT-6 Astra family, GPT-6.1 Sol/Terra, Claude Fable 5.2, Claude Opus 5.5, Gemini 4 Carbon/Argon/Hydrogen, Grok 4.7, DeepSeek V4 Pro, Qwen3.8 Max, GLM 5.3 Deep, Kimi K3.1 Pro and open weights models like Llama 4.5 and Qwen3 Max."}},
+{"@type":"Question","name":"Is it OpenAI, Anthropic and Gemini compatible?","acceptedAnswer":{"@type":"Answer","text":"Yes. POST /api/v1/chat/completions speaks the OpenAI schema, /api/v1/messages speaks the Anthropic schema and /api/v1/generateContent speaks the Gemini schema — drop-in compatible with official SDKs."}},
+{"@type":"Question","name":"Does streaming get cut off mid-response?","acceptedAnswer":{"@type":"Answer","text":"No. SSE responses send heartbeat comments every 15 seconds, a 60 second stall watchdog retries transparently and every stream is guaranteed to end with data: [DONE]."}},
+{"@type":"Question","name":"Are there free search and image APIs?","acceptedAnswer":{"@type":"Answer","text":"Yes. GET /api/v1/search?q=... is a free, keyless web search API (India-first, Bing/DDG/Google/Wikipedia fallback chain) and POST /api/v1/images/generations is a free, keyless image generation API in OpenAI Images format."}}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"Home","item":"https://grexlabs.github.io/"},
+{"@type":"ListItem","position":2,"name":"Live Platform","item":"https://www.grexlabs.in/"},
+{"@type":"ListItem","position":3,"name":"API Docs","item":"https://www.grexlabs.in/docs"}]}
+</script>
+<style>
+:root{
+  --bg:#05060a;--bg2:#090b12;--card:rgba(17,20,32,.72);--line:rgba(124,136,255,.14);
+  --txt:#e8eaf6;--mut:#9aa1c7;--acc:#7c88ff;--acc2:#22e0a1;--acc3:#ffb454;--pink:#ff6ec7;
+  --grad:linear-gradient(120deg,#7c88ff,#22e0a1 45%,#ffb454);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:'Inter',system-ui,sans-serif;overflow-x:hidden;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+::selection{background:#7c88ff55}
+/* ---------- animated background ---------- */
+.bg{position:fixed;inset:0;z-index:-2;overflow:hidden;background:
+  radial-gradient(900px 500px at 12% -10%,#7c88ff22,transparent 60%),
+  radial-gradient(800px 500px at 90% 10%,#22e0a118,transparent 55%),
+  radial-gradient(700px 600px at 50% 110%,#ff6ec714,transparent 60%),var(--bg)}
+.orb{position:absolute;border-radius:50%;filter:blur(70px);opacity:.5;animation:float 16s ease-in-out infinite}
+.orb.o1{width:420px;height:420px;background:#4f5dff33;top:-120px;left:-100px}
+.orb.o2{width:360px;height:360px;background:#22e0a12e;top:35%;right:-140px;animation-delay:-5s}
+.orb.o3{width:300px;height:300px;background:#ff6ec726;bottom:-90px;left:35%;animation-delay:-9s}
+@keyframes float{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(40px,-30px) scale(1.08)}66%{transform:translate(-30px,25px) scale(.96)}}
+.grid-lines{position:fixed;inset:0;z-index:-1;background-image:linear-gradient(rgba(124,136,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(124,136,255,.05) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse 90% 70% at 50% 30%,#000 30%,transparent 85%)}
+.stars{position:fixed;inset:0;z-index:-1;pointer-events:none}
+.star{position:absolute;width:2px;height:2px;background:#fff;border-radius:50%;opacity:.7;animation:tw 3.4s ease-in-out infinite}
+@keyframes tw{0%,100%{opacity:.15;transform:scale(.7)}50%{opacity:.9;transform:scale(1.2)}}
+/* ---------- nav ---------- */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:blur(18px);background:#05060acc;border-bottom:1px solid var(--line)}
+.nav-in{max-width:1180px;margin:0 auto;padding:14px 22px;display:flex;align-items:center;gap:28px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:18px;letter-spacing:.4px}
+.brand img{width:34px;height:34px;border-radius:9px;box-shadow:0 0 18px #7c88ff66}
+.brand span i{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.nav-links{display:flex;gap:24px;margin-left:auto;font-size:14.5px;color:var(--mut);font-weight:500}
+.nav-links a:hover{color:#fff}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:11px;padding:10px 18px;font-weight:600;font-size:14.5px;transition:.22s;cursor:pointer;border:1px solid transparent}
+.btn-p{background:var(--grad);color:#05060a;box-shadow:0 6px 24px #7c88ff44}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 10px 30px #7c88ff66}
+.btn-g{border-color:var(--line);background:#ffffff08;color:#dfe3ff}
+.btn-g:hover{background:#ffffff12;border-color:#7c88ff66}
+@media(max-width:820px){.nav-links{display:none}}
+/* ---------- hero ---------- */
+header{max-width:1180px;margin:0 auto;padding:150px 22px 70px;text-align:center}
+.pill{display:inline-flex;gap:9px;align-items:center;border:1px solid var(--line);background:#0d1020cc;border-radius:999px;padding:7px 16px;font-size:13.5px;color:#c6cbff;font-weight:600;animation:rise .7s ease both}
+.pill .dot{width:8px;height:8px;border-radius:50%;background:var(--acc2);box-shadow:0 0 10px var(--acc2);animation:pulse 1.6s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+h1{font-size:clamp(38px,6.2vw,72px);line-height:1.06;font-weight:900;letter-spacing:-2px;margin:26px 0 18px;animation:rise .7s .08s ease both}
+h1 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;background-size:220% auto;animation:shimmer 5s linear infinite}
+@keyframes shimmer{to{background-position:220% center}}
+.sub{max-width:760px;margin:0 auto;color:var(--mut);font-size:clamp(15.5px,2vw,19px);animation:rise .7s .16s ease both}
+.cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:34px;animation:rise .7s .24s ease both}
+.cta .btn{padding:14px 26px;font-size:15.5px}
+.tiny{margin-top:16px;font-size:13px;color:#7b83ad;animation:rise .7s .3s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+/* ---------- stats ---------- */
+.stats{max-width:1180px;margin:26px auto 0;padding:0 22px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px 16px;text-align:center;backdrop-filter:blur(10px);transition:.25s}
+.stat:hover{transform:translateY(-5px);border-color:#7c88ff55;box-shadow:0 14px 40px #00000066}
+.stat b{display:block;font-size:clamp(26px,3.4vw,40px);font-weight:900;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat span{font-size:13px;color:var(--mut);font-weight:600;letter-spacing:.4px}
+@media(max-width:700px){.stats{grid-template-columns:repeat(2,1fr)}}
+/* ---------- sections ---------- */
+section{max-width:1180px;margin:0 auto;padding:84px 22px}
+.kicker{font-size:13px;font-weight:800;letter-spacing:2.4px;text-transform:uppercase;color:var(--acc2);text-align:center}
+h2{font-size:clamp(28px,4vw,44px);font-weight:900;letter-spacing:-1.2px;text-align:center;margin:12px 0 14px}
+.lead{text-align:center;color:var(--mut);max-width:720px;margin:0 auto 44px;font-size:16.5px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:940px){.cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.cards{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px 24px;backdrop-filter:blur(12px);transition:.28s;position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;inset:0;background:linear-gradient(160deg,#7c88ff14,transparent 45%);opacity:0;transition:.3s}
+.card:hover{transform:translateY(-6px);border-color:#7c88ff59;box-shadow:0 20px 50px #00000073}
+.card:hover::before{opacity:1}
+.card .ico{width:48px;height:48px;border-radius:13px;display:grid;place-items:center;font-size:22px;background:#7c88ff1f;border:1px solid #7c88ff44;margin-bottom:16px}
+.card h3{font-size:18px;font-weight:800;margin-bottom:8px;letter-spacing:-.3px}
+.card p{font-size:14.5px;color:var(--mut)}
+.card a{color:var(--acc2);font-weight:600;font-size:13.5px}
+/* ---------- code ---------- */
+.code-wrap{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch}
+@media(max-width:900px){.code-wrap{grid-template-columns:1fr}}
+.code{background:#0a0c15;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 20px 60px #00000066}
+.code .bar{display:flex;gap:7px;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line);background:#0d1020}
+.code .bar i{width:11px;height:11px;border-radius:50%;background:#333}
+.code .bar i:nth-child(1){background:#ff5f57}.code .bar i:nth-child(2){background:#febc2e}.code .bar i:nth-child(3){background:#28c840}
+.code .bar span{margin-left:10px;font-size:12.5px;color:#7b83ad;font-family:'JetBrains Mono',monospace}
+.code pre{padding:20px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:13.2px;line-height:1.75;color:#cdd3ff;white-space:pre-wrap;word-break:break-word;min-height:250px}
+.c-key{color:#7c88ff}.c-str{color:#22e0a1}.c-com{color:#5b6290}.c-num{color:#ffb454}.c-cmd{color:#ff6ec7}
+.tabs{display:flex;gap:8px;justify-content:center;margin-bottom:26px;flex-wrap:wrap}
+.tab{padding:9px 18px;border-radius:999px;border:1px solid var(--line);background:#0d1020;color:var(--mut);font-size:13.5px;font-weight:700;cursor:pointer;transition:.2s;font-family:'JetBrains Mono',monospace}
+.tab.on{background:var(--grad);color:#05060a;border-color:transparent;box-shadow:0 6px 20px #7c88ff44}
+/* ---------- models ---------- */
+.model-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.m{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:16px 18px;transition:.24s}
+.m:hover{border-color:#22e0a166;transform:translateY(-4px);box-shadow:0 14px 34px #00000066}
+.m .id{font-family:'JetBrains Mono',monospace;font-size:12.6px;color:#8f97ff;font-weight:600;word-break:break-all}
+.m .nm{font-size:14.5px;font-weight:700;margin:5px 0 8px}
+.m .tag{font-size:11.5px;font-weight:800;padding:3px 9px;border-radius:999px;letter-spacing:.5px}
+.tag.free{background:#22e0a122;color:#22e0a1;border:1px solid #22e0a155}
+.tag.prem{background:#ffb45422;color:#ffb454;border:1px solid #ffb45455}
+.m .meta{font-size:12.5px;color:#7b83ad;margin-top:8px}
+/* ---------- compare ---------- */
+.cmp{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;font-size:14.5px}
+.cmp th,.cmp td{padding:15px 18px;text-align:left;border-bottom:1px solid var(--line)}
+.cmp th{background:#0d1020;font-size:13px;letter-spacing:.6px;text-transform:uppercase;color:#aeb6ff}
+.cmp tr:last-child td{border-bottom:none}
+.cmp td:first-child{font-weight:700}
+.ok{color:#22e0a1;font-weight:800}.no{color:#ff6b81;font-weight:800}
+.cmp-wrap{overflow-x:auto;border-radius:18px}
+/* ---------- steps ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:800px){.steps{grid-template-columns:1fr}}
+.step{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 22px;position:relative}
+.step b.n{position:absolute;top:-16px;left:22px;background:var(--grad);color:#05060a;width:34px;height:34px;border-radius:10px;display:grid;place-items:center;font-weight:900;font-size:15px}
+.step h4{font-size:16.5px;margin:8px 0 8px;font-weight:800}
+.step p{font-size:14px;color:var(--mut)}
+.step code{font-family:'JetBrains Mono',monospace;background:#7c88ff1a;color:#9aa4ff;padding:2px 7px;border-radius:6px;font-size:12.5px}
+/* ---------- cta band ---------- */
+.band{max-width:1180px;margin:20px auto 90px;padding:0 22px}
+.band-in{background:linear-gradient(135deg,#12162a,#0b0e1a);border:1px solid #7c88ff3d;border-radius:26px;padding:56px 34px;text-align:center;position:relative;overflow:hidden}
+.band-in::after{content:"";position:absolute;inset:-40%;background:conic-gradient(from 0deg,transparent,#7c88ff33,#22e0a133,transparent 30%);animation:spin 14s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.band-in>*{position:relative;z-index:1}
+.band h2{margin-top:0}
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);background:#070910;padding:56px 22px 34px}
+.f-in{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px}
+@media(max-width:820px){.f-in{grid-template-columns:1fr 1fr}}
+.f-in h5{font-size:13px;letter-spacing:1.4px;text-transform:uppercase;color:#8f97ff;margin-bottom:14px;font-weight:800}
+.f-in a,.f-in p{display:block;color:var(--mut);font-size:14px;margin-bottom:9px;transition:.2s}
+.f-in a:hover{color:#fff}
+.f-bot{max-width:1180px;margin:34px auto 0;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;color:#6d749b;font-size:13px}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+.cursor{display:inline-block;width:9px;background:var(--acc2);animation:blink .9s steps(1) infinite;color:transparent}
+@keyframes blink{50%{opacity:0}}
+</style>
+</head>
+<body>
+<div class="bg"><div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div></div>
+<div class="grid-lines"></div>
+<div class="stars" id="stars"></div>
+
+<nav>
+  <div class="nav-in">
+    <a class="brand" href="#top"><img src="/assets/logo.png" alt="GrexLabs logo — free AI API platform"><span>Grex<i>Labs</i></span></a>
+    <div class="nav-links">
+      <a href="https://www.grexlabs.in/docs">Docs</a>
+      <a href="https://www.grexlabs.in/models">Models</a>
+      <a href="https://www.grexlabs.in/playground">Playground</a>
+      <a href="https://www.grexlabs.in/search-playground">Search API</a>
+      <a href="https://www.grexlabs.in/pricing">Pricing</a>
+      <a href="https://github.com/Grexlabs/grexlabs">GitHub</a>
+    </div>
+    <a class="btn btn-p" href="https://www.grexlabs.in/signup">Get free key</a>
+  </div>
+</nav>
+
+<header id="top">
+  <div class="pill"><span class="dot"></span> Live · 314 models · free tier needs no API key</div>
+  <h1>The <span class="grad">free AI API</span><br>developers actually ship with</h1>
+  <p class="sub"><strong>314+ models</strong> from 25+ providers — GPT-6.2&nbsp;Astra, Claude&nbsp;Fable&nbsp;5.2, Gemini&nbsp;4&nbsp;Carbon, Grok&nbsp;4.7 — behind one <strong>OpenAI-compatible</strong> endpoint. Free <code>:free</code> models: <strong>no key, no signup, no credit card</strong>. Streaming that never cuts out.</p>
+  <div class="cta">
+    <a class="btn btn-p" href="https://www.grexlabs.in/playground">▶ Try the playground</a>
+    <a class="btn btn-g" href="https://www.grexlabs.in/docs">Read the API docs</a>
+    <a class="btn btn-g" href="https://github.com/Grexlabs/grexlabs">★ Star on GitHub</a>
+  </div>
+  <p class="tiny">curl-friendly · works with official OpenAI / Anthropic / Gemini SDKs · MIT-friendly platform</p>
+</header>
+
+<div class="stats">
+  <div class="stat reveal"><b data-count="314">0</b><span>LLM MODELS</span></div>
+  <div class="stat reveal"><b data-count="25">0</b><span>PROVIDERS</span></div>
+  <div class="stat reveal"><b data-count="31">0</b><span>FREE MODELS</span></div>
+  <div class="stat reveal"><b data-count="0" data-suffix="₹">0</b><span>TO START</span></div>
+</div>
+
+<section>
+  <div class="kicker">Why GrexLabs</div>
+  <h2>Everything you need to build with AI</h2>
+  <p class="lead">One gateway for chat, reasoning, search and images — with the reliability details (heartbeats, watchdogs, failover) that toy proxies skip.</p>
+  <div class="cards">
+    <div class="card reveal"><div class="ico">🔌</div><h3>Drop-in compatible</h3><p>OpenAI <code>/v1/chat/completions</code>, Anthropic <code>/v1/messages</code> and Gemini <code>/v1/generateContent</code> schemas — official SDKs work unchanged.</p><a href="https://www.grexlabs.in/docs">Endpoint reference →</a></div>
+    <div class="card reveal"><div class="ico">🔑</div><h3>Keyless free tier</h3><p>31 free model IDs plus <code>auto:free</code> run with <strong>zero authentication</strong>. Premium flagships unlock with a valid <code>sk-gl-</code> key.</p><a href="https://www.grexlabs.in/pricing">Free vs flagship →</a></div>
+    <div class="card reveal"><div class="ico">🌊</div><h3>Streaming without cutout</h3><p>15s SSE heartbeats, 60s stall watchdog, guaranteed <code>data: [DONE]</code>. Long answers arrive intact — no mid-response truncation.</p><a href="https://www.grexlabs.in/docs">Streaming details →</a></div>
+    <div class="card reveal"><div class="ico">⚡</div><h3>Fast multi-provider failover</h3><p>Requests race across healthy upstreams with a 12s per-attempt budget and 120s total window — slow providers never hold your app hostage.</p><a href="https://www.grexlabs.in/docs">Architecture →</a></div>
+    <div class="card reveal"><div class="ico">🔍</div><h3>Free web search API</h3><p><code>GET /api/v1/search?q=</code> — keyless, India-first ranking, Bing → DuckDuckGo → Google → Wikipedia fallback chain, 8s budget.</p><a href="https://www.grexlabs.in/search-playground">Try search →</a></div>
+    <div class="card reveal"><div class="ico">🎨</div><h3>Free image generation API</h3><p><code>POST /images/generations</code> — OpenAI Images format, keyless, multiple sizes, <code>url</code> or <code>b64_json</code> responses.</p><a href="https://www.grexlabs.in/docs#images">Image API →</a></div>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Quickstart</div>
+  <h2>First response in 30 seconds</h2>
+  <p class="lead">No account required for free models. Pick a language tab and paste.</p>
+  <div class="tabs">
+    <button class="tab on" data-t="curl">curl</button>
+    <button class="tab" data-t="py">Python</button>
+    <button class="tab" data-t="js">JavaScript</button>
+    <button class="tab" data-t="flag">Flagship</button>
+    <button class="tab" data-t="search">Search API</button>
+  </div>
+  <div class="code">
+    <div class="bar"><i></i><i></i><i></i><span id="file">terminal — free, no key</span></div>
+    <pre id="codebox"></pre>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Model catalog</div>
+  <h2>Flagship brains + free workhorses</h2>
+  <p class="lead">314 models total — the full list lives at <a href="https://www.grexlabs.in/llm.txt" style="color:#22e0a1">grexlabs.in/llm.txt</a> and <code>GET /api/v1/models</code>. A taste:</p>
+  <div class="model-grid">
+    <div class="m reveal"><div class="id">openai/gpt-6.2-astra</div><div class="nm">GPT-6.2 Astra</div><span class="tag prem">FLAGSHIP</span><div class="meta">Top reasoning · 1M context · vision</div></div>
+    <div class="m reveal"><div class="id">anthropic/claude-fable-5.2</div><div class="nm">Claude Fable 5.2</div><span class="tag prem">FLAGSHIP</span><div class="meta">Agentic coding · tools · 1M context</div></div>
+    <div class="m reveal"><div class="id">google/gemini-4-carbon</div><div class="nm">Gemini 4 Carbon</div><span class="tag prem">FLAGSHIP</span><div class="meta">Multimodal · 2M context · fast</div></div>
+    <div class="m reveal"><div class="id">x_ai/grok-4.7</div><div class="nm">Grok 4.7</div><span class="tag prem">FLAGSHIP</span><div class="meta">Real-time knowledge · reasoning</div></div>
+    <div class="m reveal"><div class="id">auto:free</div><div class="nm">Auto Free Router</div><span class="tag free">FREE · NO KEY</span><div class="meta">Picks the best free model per request</div></div>
+    <div class="m reveal"><div class="id">openai/gpt-5.5:free</div><div class="nm">GPT-5.5 Free</div><span class="tag free">FREE · NO KEY</span><div class="meta">200k context · chat &amp; code</div></div>
+    <div class="m reveal"><div class="id">anthropic/claude-opus-5:free</div><div class="nm">Claude Opus 5 Free</div><span class="tag free">FREE · NO KEY</span><div class="meta">Strong reasoning · tools</div></div>
+    <div class="m reveal"><div class="id">deepseek/deepseek-v4:free</div><div class="nm">DeepSeek V4 Free</div><span class="tag free">FREE · NO KEY</span><div class="meta">Open weights · math &amp; code</div></div>
+    <div class="m reveal"><div class="id">google/gemini-4-pro:free</div><div class="nm">Gemini 4 Pro Free</div><span class="tag free">FREE · NO KEY</span><div class="meta">Long context · multimodal</div></div>
+    <div class="m reveal"><div class="id">x_ai/grok-5:free</div><div class="nm">Grok 5 Free</div><span class="tag free">FREE · NO KEY</span><div class="meta">Fast · high quality</div></div>
+    <div class="m reveal"><div class="id">meta-llama/llama-4.5:free</div><div class="nm">Llama 4.5 Free</div><span class="tag free">FREE · NO KEY</span><div class="meta">Open weights · 1M context</div></div>
+    <div class="m reveal"><div class="id">+300 more models</div><div class="nm">Full catalog</div><span class="tag free">314 TOTAL</span><div class="meta"><a href="https://www.grexlabs.in/models">Browse all models →</a></div></div>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Compare</div>
+  <h2>Why teams switch to GrexLabs</h2>
+  <div class="cmp-wrap reveal">
+  <table class="cmp">
+    <tr><th>Capability</th><th>GrexLabs</th><th>Direct provider APIs</th><th>Typical free proxies</th></tr>
+    <tr><td>Models behind one endpoint</td><td class="ok">314+ / 25+ providers</td><td>1 provider each</td><td>5–30</td></tr>
+    <tr><td>Free tier without any key</td><td class="ok">Yes — 31 models</td><td class="no">No</td><td>Sometimes</td></tr>
+    <tr><td>OpenAI + Anthropic + Gemini schemas</td><td class="ok">All three</td><td class="no">One each</td><td>OpenAI only</td></tr>
+    <tr><td>Heartbeat + watchdog streaming</td><td class="ok">15s / 60s / [DONE]</td><td class="ok">Yes</td><td class="no">Frequent cutouts</td></tr>
+    <tr><td>Free web search API</td><td class="ok">Included</td><td class="no">Paid add-on</td><td class="no">Rare</td></tr>
+    <tr><td>Free image generation API</td><td class="ok">Included</td><td class="no">Paid</td><td class="no">Rare</td></tr>
+    <tr><td>Multi-provider failover</td><td class="ok">Racing retries</td><td class="no">Single upstream</td><td class="no">None</td></tr>
+    <tr><td>SEO / AEO / GEO files (llm.txt, llms.txt)</td><td class="ok">Full set</td><td class="no">—</td><td class="no">—</td></tr>
+  </table>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">How it works</div>
+  <h2>Three steps to production</h2>
+  <div class="steps">
+    <div class="step reveal"><b class="n">1</b><h4>Call free models instantly</h4><p>POST to <code>/api/v1/chat/completions</code> with <code>"model":"auto:free"</code> — no Authorization header needed. Great for prototypes, hacks and demos.</p></div>
+    <div class="step reveal"><b class="n">2</b><h4>Get a free <code>sk-gl-</code> key</h4><p>Sign up on the dashboard for rate limits, usage analytics and — later — flagship models like GPT-6.2 Astra and Claude Fable 5.2.</p></div>
+    <div class="step reveal"><b class="n">3</b><h4>Ship with official SDKs</h4><p>Point the OpenAI/Anthropic/Gemini SDK base URL at <code>https://www.grexlabs.in</code> and keep your existing code.</p></div>
+  </div>
+</section>
+
+<div class="band">
+  <div class="band-in reveal">
+    <div class="kicker">Start now</div>
+    <h2>Your first free AI call is one curl away</h2>
+    <p class="lead" style="margin-bottom:26px">No credit card. No API key for free models. 314 models waiting.</p>
+    <div class="cta" style="margin-top:0">
+      <a class="btn btn-p" href="https://www.grexlabs.in/playground">Open playground</a>
+      <a class="btn btn-g" href="https://www.grexlabs.in/signup">Create free account</a>
+      <a class="btn btn-g" href="https://www.grexlabs.in/llm.txt">View llm.txt</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="f-in">
+    <div>
+      <a class="brand" href="#top" style="margin-bottom:14px"><img src="/assets/logo.png" alt="GrexLabs" width="34" height="34"><span>Grex<i>Labs</i></span></a>
+      <p>Free AI API platform — 314+ models, OpenAI-compatible chat completions, web search and image generation. Built for developers who ship.</p>
+      <p><a href="https://www.grexlabs.in">www.grexlabs.in</a></p>
+    </div>
+    <div>
+      <h5>Product</h5>
+      <a href="https://www.grexlabs.in/docs">API Docs</a>
+      <a href="https://www.grexlabs.in/models">Model Catalog</a>
+      <a href="https://www.grexlabs.in/playground">Playground</a>
+      <a href="https://www.grexlabs.in/search-playground">Search Playground</a>
+      <a href="https://www.grexlabs.in/pricing">Pricing</a>
+    </div>
+    <div>
+      <h5>Developers</h5>
+      <a href="https://www.grexlabs.in/llm.txt">llm.txt</a>
+      <a href="https://www.grexlabs.in/llms.txt">llms.txt</a>
+      <a href="https://www.grexlabs.in/robots.txt">robots.txt</a>
+      <a href="https://www.grexlabs.in/sitemap.xml">sitemap.xml</a>
+      <a href="https://github.com/Grexlabs/grexlabs">GitHub Repository</a>
+    </div>
+    <div>
+      <h5>Endpoints</h5>
+      <a href="https://www.grexlabs.in/docs">/api/v1/chat/completions</a>
+      <a href="https://www.grexlabs.in/docs">/api/v1/messages</a>
+      <a href="https://www.grexlabs.in/docs">/api/v1/generateContent</a>
+      <a href="https://www.grexlabs.in/docs">/api/v1/search</a>
+      <a href="https://www.grexlabs.in/docs#images">/images/generations</a>
+    </div>
+  </div>
+  <div class="f-bot">
+    <span>© 2026 GrexLabs. Free AI API for everyone.</span>
+    <span>Made with ⚡ for builders · <a href="https://github.com/Grexlabs" style="color:#8f97ff">github.com/Grexlabs</a></span>
+  </div>
+</footer>
+
+<script>
+// stars
+(function(){
+  const s=document.getElementById('stars');
+  for(let i=0;i<70;i++){
+    const d=document.createElement('div');d.className='star';
+    d.style.left=Math.random()*100+'%';d.style.top=Math.random()*100+'%';
+    d.style.animationDelay=(Math.random()*3.4)+'s';
+    d.style.transform='scale('+(.5+Math.random())+')';
+    s.appendChild(d);
+  }
+})();
+// reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+// counters
+const cio=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;const el=e.target;const target=+el.dataset.count;const suf=el.dataset.suffix||'';
+  let cur=0;const t0=performance.now();
+  function tick(t){const p=Math.min((t-t0)/1400,1);cur=Math.round(target*(1-Math.pow(1-p,3)));el.textContent=(suf==='₹'?'₹'+cur:cur+(target>100?'+':''));if(p<1)requestAnimationFrame(tick)}
+  requestAnimationFrame(tick);cio.unobserve(el);
+}),{threshold:.5});
+document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
+// tabs
+const samples={
+  curl:{f:'terminal — free, no key',h:`<span class="c-com"># free model, NO API key needed</span>
+<span class="c-cmd">curl</span> https://www.grexlabs.in/api/v1/chat/completions \\
+  -H <span class="c-str">"Content-Type: application/json"</span> \\
+  -d <span class="c-str">'{
+    "model": "auto:free",
+    "messages": [{"role":"user","content":"Write a haiku about APIs"}],
+    "stream": true
+  }'</span>
+
+<span class="c-com"># → SSE chunks ... ends with: data: [DONE]</span>`},
+  py:{f:'quickstart.py',h:`<span class="c-key">from</span> openai <span class="c-key">import</span> OpenAI
+
+client = OpenAI(
+    base_url=<span class="c-str">"https://www.grexlabs.in"</span>,
+    api_key=<span class="c-str">"not-needed-for-free-models"</span>,  <span class="c-com"># free tier</span>
+)
+
+resp = client.chat.completions.create(
+    model=<span class="c-str">"auto:free"</span>,
+    messages=[{<span class="c-str">"role"</span>: <span class="c-str">"user"</span>, <span class="c-str">"content"</span>: <span class="c-str">"Hello!"</span>}],
+)
+<span class="c-cmd">print</span>(resp.choices[<span class="c-num">0</span>].message.content)`},
+  js:{f:'quickstart.mjs',h:`<span class="c-key">import</span> OpenAI <span class="c-key">from</span> <span class="c-str">"openai"</span>;
+
+<span class="c-key">const</span> client = <span class="c-key">new</span> OpenAI({
+  baseURL: <span class="c-str">"https://www.grexlabs.in"</span>,
+  apiKey: <span class="c-str">"not-needed-for-free-models"</span>,
+});
+
+<span class="c-key">const</span> stream = <span class="c-key">await</span> client.chat.completions.create({
+  model: <span class="c-str">"auto:free"</span>,
+  messages: [{ role: <span class="c-str">"user"</span>, content: <span class="c-str">"Hello!"</span> }],
+  stream: <span class="c-key">true</span>,
+});
+
+<span class="c-key">for await</span> (<span class="c-key">const</span> chunk <span class="c-key">of</span> stream) {
+  process.stdout.write(chunk.choices[<span class="c-num">0</span>]?.delta?.content ?? <span class="c-str">""</span>);
+}`},
+  flag:{f:'terminal — flagship (sk-gl- key)',h:`<span class="c-com"># flagship models require a valid issued key</span>
+<span class="c-cmd">curl</span> https://www.grexlabs.in/api/v1/chat/completions \\
+  -H <span class="c-str">"Content-Type: application/json"</span> \\
+  -H <span class="c-str">"Authorization: Bearer sk-gl-YYYYYYYY-xxxx"</span> \\
+  -d <span class="c-str">'{
+    "model": "openai/gpt-6.2-astra",
+    "messages": [{"role":"user","content":"Plan a microservice"}]
+  }'</span>
+
+<span class="c-com"># Anthropic schema also works:</span>
+<span class="c-com"># POST /api/v1/messages  model: anthropic/claude-fable-5.2</span>
+<span class="c-com"># Gemini schema also works:</span>
+<span class="c-com"># POST /api/v1/generateContent  model: google/gemini-4-carbon</span>`},
+  search:{f:'terminal — free search API',h:`<span class="c-com"># free web search, no key</span>
+<span class="c-cmd">curl</span> <span class="c-str">"https://www.grexlabs.in/api/v1/search?q=best+free+ai+api&region=IN"</span>
+
+<span class="c-com"># → { results: [{title,url,snippet}...], engine, timing }</span>
+
+<span class="c-com"># free image generation, no key</span>
+<span class="c-cmd">curl</span> https://www.grexlabs.in/images/generations \\
+  -H <span class="c-str">"Content-Type: application/json"</span> \\
+  -d <span class="c-str">'{"model":"gpt-image","prompt":"neon city, rain","size":"1024x1024"}'</span>
+
+<span class="c-com"># → { data: [{ url | b64_json }] }</span>`}
+};
+const box=document.getElementById('codebox'),file=document.getElementById('file');
+let typer;
+function show(k){
+  const s=samples[k];file.textContent=s.f;
+  clearInterval(typer);
+  // typewriter on plain text length (approx)
+  const plain=s.h.replace(/<[^>]+>/g,'');
+  let i=0;box.innerHTML='<span class="cursor">_</span>';
+  typer=setInterval(()=>{
+    i+=3;
+    if(i>=plain.length){clearInterval(typer);box.innerHTML=s.h;return}
+    box.textContent=plain.slice(0,i);
+    const c=document.createElement('span');c.className='cursor';c.textContent='_';box.appendChild(c);
+  },8);
+}
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');show(b.dataset.t);
+}));
+show('curl');
+</script>
+</body>
+</html>
