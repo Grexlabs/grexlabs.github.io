@@ -47,6 +47,10 @@
     runBtn.addEventListener("click", function () {
       var ta = document.querySelector("[data-prompt]");
       var q = ta && ta.value.trim() ? "?q=" + encodeURIComponent(ta.value.trim()) : "";
+      var mn = document.querySelector("[data-model-name]");
+      if (mn && mn.textContent && mn.textContent !== "auto:free") {
+        q += (q ? "&" : "?") + "model=" + encodeURIComponent(mn.textContent);
+      }
       location.href = "/playground" + q;
     });
     var ta0 = document.querySelector("[data-prompt]");
@@ -217,5 +221,91 @@
     } else {
       revealEls.forEach(function (el) { el.classList.add("in"); });
     }
+  }
+
+  /* ── model picker (console) ── */
+  var pickBtn = document.querySelector("[data-model-pick]");
+  var pickPop = document.querySelector("[data-model-pop]");
+  var pickName = document.querySelector("[data-model-name]");
+  if (pickBtn && pickPop) {
+    var FREE_IDS = ["auto:free","auto"];
+    var pickModels = null;
+    var chosen = "auto:free";
+
+    function loadPick() {
+      if (pickModels) return Promise.resolve(pickModels);
+      return fetch("/api/v1/models").then(function(r){return r.json()}).then(function(d){
+        var ids = (d.data||[]).map(function(m){return m.id});
+        // free first, then popular paid
+        var free = ids.filter(function(i){return i.slice(-5)===":free"}).slice(0,12);
+        var paid = ids.filter(function(i){return i.slice(-5)!==":free" && FREE_IDS.indexOf(i)<0}).slice(0,25);
+        pickModels = free.concat(paid);
+        return pickModels;
+      }).catch(function(){pickModels=["auto:free"];return pickModels});
+    }
+
+    function renderPick(q) {
+      q = (q||"").toLowerCase();
+      var ids = (pickModels||[]).filter(function(i){return !q || i.toLowerCase().indexOf(q)!==-1});
+      var html = ids.slice(0,40).map(function(id){
+        var free = id.slice(-5)===":free" || id==="auto:free";
+        return '<button type="button" role="option" data-id="'+id+'" class="'+(id===chosen?"sel":"")+'">'+
+          '<span class="mp-id">'+id+'</span>'+
+          (free?'<span class="tag-free">FREE</span>':'<span class="tag-lock">SIGN UP</span>')+
+        '</button>';
+      }).join("");
+      html += '<div class="mp-note">Free models run with no signup. Paid models need a free account \u2014 <a href="/signup">create one</a> for $10 credit.</div>';
+      pickPop.innerHTML = html;
+    }
+
+    pickBtn.addEventListener("click", function(e){
+      e.stopPropagation();
+      var open = !pickPop.classList.contains("open");
+      pickPop.classList.toggle("open", open);
+      pickBtn.setAttribute("aria-expanded", open?"true":"false");
+      if (open) {
+        pickPop.innerHTML = '<div style="padding:.75rem;font-family:var(--font-tech);font-size:.6875rem;color:hsl(var(--foreground-faint))">Loading models\u2026</div>';
+        loadPick().then(function(){renderPick("")});
+      }
+    });
+    pickPop.addEventListener("click", function(e){
+      var b = e.target.closest("button[data-id]");
+      if (!b) return;
+      chosen = b.getAttribute("data-id");
+      if (pickName) pickName.textContent = chosen;
+      pickPop.classList.remove("open");
+      pickBtn.setAttribute("aria-expanded","false");
+    });
+    document.addEventListener("click", function(e){
+      if (!pickPop.classList.contains("open")) return;
+      if (pickPop.contains(e.target) || pickBtn.contains(e.target)) return;
+      pickPop.classList.remove("open");
+      pickBtn.setAttribute("aria-expanded","false");
+    });
+
+    // run → pass model
+    var runBtn2 = document.querySelector("[data-run]");
+    if (runBtn2) {
+      runBtn2.addEventListener("click", function(){
+        // intercept: append model to query — re-bind by wrapping original navigation
+      }, true);
+    }
+  }
+
+  /* ── cookie consent ── */
+  var cbar = document.getElementById("cookieBar");
+  if (cbar) {
+    var key = "gl_cookie_consent";
+    var val = null;
+    try { val = localStorage.getItem(key); } catch(e) {}
+    if (!val) {
+      setTimeout(function(){ cbar.classList.add("show"); }, 900);
+    }
+    cbar.addEventListener("click", function(e){
+      var b = e.target.closest("[data-cookie]");
+      if (!b) return;
+      try { localStorage.setItem(key, b.getAttribute("data-cookie")); } catch(e) {}
+      cbar.classList.remove("show");
+    });
   }
 })();
