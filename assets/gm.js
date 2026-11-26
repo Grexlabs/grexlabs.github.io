@@ -1,13 +1,25 @@
 (function () {
   "use strict";
 
-  /* mobile menu */
+  /* mobile menu — floating mini buttons */
   var menuBtn = document.querySelector("[data-menu-btn]");
   var menu = document.querySelector("[data-mobile-menu]");
   if (menuBtn && menu) {
-    menuBtn.addEventListener("click", function () {
-      var open = menu.classList.toggle("open");
+    var setMenu = function (open) {
+      menu.classList.toggle("open", open);
       menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    };
+    menuBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      setMenu(!menu.classList.contains("open"));
+    });
+    document.addEventListener("click", function (e) {
+      if (!menu.classList.contains("open")) return;
+      if (menu.contains(e.target) || menuBtn.contains(e.target)) return;
+      setMenu(false);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && menu.classList.contains("open")) setMenu(false);
     });
   }
 
