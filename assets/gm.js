@@ -40,7 +40,10 @@
     var ta0 = document.querySelector("[data-prompt]");
     if (ta0) {
       ta0.addEventListener("keydown", function (e) {
-        if ((e.metaKey || e.ctrlKey) && e.key === "Enter") runBtn.click();
+        if (e.key !== "Enter") return;
+        if (e.shiftKey) return; /* ⇧↵ = new line (default) */
+        e.preventDefault();
+        runBtn.click();
       });
     }
   }
@@ -185,4 +188,22 @@
       });
     });
   });
+
+  /* scroll-reveal */
+  var revealEls = document.querySelectorAll(".reveal");
+  if (revealEls.length) {
+    if ("IntersectionObserver" in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) {
+            en.target.classList.add("in");
+            io.unobserve(en.target);
+          }
+        });
+      }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+      revealEls.forEach(function (el) { io.observe(el); });
+    } else {
+      revealEls.forEach(function (el) { el.classList.add("in"); });
+    }
+  }
 })();
